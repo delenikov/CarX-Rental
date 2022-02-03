@@ -1,0 +1,136 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+
+<th:block>
+    <h3 style="text-align: center;">Мени за додавање нов корисник.</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <form action="/korisnici/add" method="POST">
+                    <div class="form-group">
+                        <label for="embg">Матичен број</label>
+                        <input type="text"
+                               class="form-control"
+                               id="embg"
+                               name="embg"
+                               th:value required
+                               placeholder="Внесете ЕМБГ"
+                               maxlength="13">
+                    </div>
+                    <div class="form-group">
+                        <label for="ime">Име</label>
+                        <input type="text"
+                               class="form-control"
+                               id="ime"
+                               name="ime"
+                               th:value required
+                               placeholder="Внесете Име"
+                               maxlength="13">
+                    </div>
+                    <div class="form-group">
+                        <label for="prezime">Презиме</label>
+                        <input type="text"
+                               class="form-control"
+                               id="prezime"
+                               name="prezime"
+                               th:value required
+                               placeholder="Внесете Презиме"
+                               maxlength="13">
+                    </div>
+                    <div class="form-group">
+                        <label for="pol">Пол</label>
+                        <select name="pol" id="pol" class="form-control" style="margin-right: 5px">
+                            <option value="M"> Машко
+                            </option>
+                            <option value="Z"> Женско
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ulica">Улица</label>
+                        <input type="text"
+                               class="form-control"
+                               id="ulica"
+                               name="ulica"
+                               th:value required
+                               placeholder="Внесете улица на живеење.">
+                    </div>
+                    <div class="form-group">
+                        <label for="broj">Број на улица</label>
+                        <input type="text"
+                               class="form-control"
+                               id="broj"
+                               name="broj"
+                               th:value required
+                               placeholder="Внесете број на улица">
+                    </div>
+                    <div class="form-group">
+                        <label for="vozrast">Возраст</label>
+                        <input type="text"
+                               class="form-control"
+                               id="vozrast"
+                               name="vozrast"
+                               th:value required
+                               placeholder="Внесте години">
+                    </div>
+                    <div class="form-group">
+                        <label for="datanaraganje">Дата на раѓање</label>
+                        <input type="date" class="form-control" id="datanaraganje" name="datanaraganje"
+                               th:value required
+                               min="1980-01-01" max="2003-01-01">
+                    </div>
+                    <div class="form-group">
+                        <label for="vozacka">Тип возачка дозвола</label>
+                        <select name="vozacka" id="vozacka" class="form-control" style="margin-right: 5px">
+                            <option value="A1"> A1
+                            </option>
+                            <option value="A"> A
+                            </option>
+                            <option value="B"> B
+                            </option>
+                            <option value="C1"> C1
+                            </option>
+                            <option value="C"> C
+                            </option>
+                            <option value="D1"> D1
+                            </option>
+                            <option value="D"> D
+                            </option>
+                            <option value="BE"> BE
+                            </option>
+                            <option value="C1E"> C1E
+                            </option>
+                            <option value="CE"> CE
+                            </option>
+                            <option value="D1E"> D1E
+                            </option>
+                            <option value="DE"> DE
+                            </option>
+                            <option value="F"> F
+                            </option>
+                            <option value="G"> G
+                            </option>
+                            <option value="M"> M
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipkorisnik">Тип на корисник</label>
+                        <select name="tipkorisnik" id="tipkorisnik" class="form-control" style="margin-right: 5px">
+                            <option value="0"> Бесплатна
+                            </option>
+                            <option value="1"> Медиум
+                            </option>
+                            <option value="2"> Премиум
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Поднеси</button>
+                        <a type="button" class="btn btn-primary" href="/korisnici">Назад</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</th:block>

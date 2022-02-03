@@ -1,0 +1,110 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+
+<th:block>
+    <h3 style="text-align: center;">Мени за додавање возило.</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <form action="/vozila/add" method="POST">
+                    <div class="form-group">
+                        <label for="registracija">Регистрација</label>
+                        <input type="text"
+                               class="form-control"
+                               id="registracija"
+                               name="registracija"
+                               th:value="(${vozilo} != null ? ${vozilo.getRegistracija()} : '')"
+                               required
+                               placeholder="Внесете регистрација"
+                               maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="tip">Тип возило</label>
+                        <select name="tip" id="tip" class="form-control" style="margin-right: 5px">
+                            <option value="0"> Мотор
+                            </option>
+                            <option value="1"> Aвтомобил
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="brend">Бренд</label>
+                        <input type="text"
+                               class="form-control"
+                               id="brend"
+                               name="brend"
+                               th:value="(${vozilo} != null ? ${vozilo.getBrend()} : '')"
+                               required
+                               placeholder="Внесете бренд">
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Модел</label>
+                        <input type="text"
+                               class="form-control"
+                               id="model"
+                               name="model"
+                               th:value="(${vozilo} != null ? ${vozilo.getModel()} : '')"
+                               required
+                               placeholder="Внесете модел">
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Година</label>
+                        <input type="text"
+                               class="form-control"
+                               id="godina"
+                               name="godina"
+                               th:value="(${vozilo} != null ? ${vozilo.getGodina()} : '')"
+                               required
+                               placeholder="Внесете година"
+                               maxlength="4">
+                    </div>
+                    <div class="form-group">
+                        <label for="gorivo">Гориво</label>
+                        <input type="text"
+                               class="form-control"
+                               id="gorivo"
+                               name="gorivo"
+                               th:value="(${vozilo} != null ? ${vozilo.getGorivo()} : '')"
+                               required
+                               placeholder="Внесете гориво">
+                    </div>
+                    <div class="form-group">
+                        <label for="cena">Цена</label>
+                        <input type="text"
+                               class="form-control"
+                               id="cena"
+                               name="cena"
+                               th:value="(${vozilo} != null ? ${vozilo.getCena()} : '')"
+                               required
+                               placeholder="Внесете цена"
+                               maxlength="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="boja">Боја</label>
+                        <input type="text"
+                               class="form-control"
+                               id="boja"
+                               name="boja"
+                               th:value="(${vozilo} != null ? ${vozilo.getBoja()} : '')"
+                               required
+                               placeholder="Внесете боја">
+                    </div>
+                    <div style="height: 70px; margin-bottom: 1rem;">
+                        <label>Локација</label>
+                        <select name="lokacija" class="form-control" style="margin-right: 5px">
+                            <option
+                                    th:each="loc : ${locations}"
+                                    th:value="${loc.getId_lokacija()}"
+                                    th:text="${loc.getIme()}">Одберете ја вашата најблиска локација.
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Поднеси</button>
+                        <a type="button" class="btn btn-primary" href="/vozila">Назад</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</th:block>

@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+
+<th:block>
+    <h4 style="text-align: center; margin:2%;">Додавање нов договор за рентање возило</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <form action="/rentanja/add" method="POST">
+                    <div class="form-group">
+                        <label>Корисници:</label>
+                        <select name="embg" class="form-control" style="margin-right: 5px">
+                            <option
+                                    th:each="korisnik : ${korisnici}"
+                                    th:value="${korisnik.getEmbg()}"
+                                    th:text="${korisnik.getIme()} + ' ' + ${korisnik.getPrezime()}">.
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Достапни возила:</label>
+                        <select name="registracija" class="form-control" style="margin-right: 5px">
+                            <option
+                                    th:each="vozilo : ${vozila}"
+                                    th:value="${vozilo.getRegistracija()}"
+                                    th:text="${vozilo.getBrend()} + ' ' + ${vozilo.getModel()} + ',  ' + ${vozilo.getCena()} + ' ' + 'ден.'">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="odkoga">Почеток на рентање</label>
+                        <input type="date" class="form-control" id="odkoga" name="odkoga"
+                               th:value required
+                               min="2022-01-01">
+                    </div>
+                    <div class="form-group">
+                        <label for="dokoga">Завршување на рентање</label>
+                        <input type="date" class="form-control" id="dokoga" name="dokoga"
+                               th:value required
+                               min="2022-01-01">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Поднеси</button>
+                        <a type="button" class="btn btn-primary" href="/rentanja">Назад</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</th:block>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <h4 style="text-align: center; margin:2%;">Приказ на сите задоцнети возила</h4>
+    <div class="container mb-4">
+        <div class="row">
+            <div th:if="${zadocnetiRentanja.size() > 0}">
+                <div class="table-responsive-xl" style="box-sizing: content-box;!important;">
+                    <table id="album" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Регистрација</th>
+                            <th scope="col">Тип</th>
+                            <th scope="col">Возило</th>
+                            <th scope="col">Цена</th>
+                            <th scope="col">Име</th>
+                            <th scope="col">Презиме</th>
+                            <th scope="col">Датум на изнајмување:</th>
+                            <th scope="col">Датум за враќање</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="rentanje : ${zadocnetiRentanja}">
+                            <td th:text="${rentanje.getId_rentanje()}"></td>
+                            <td th:text="${rentanje.getVozilo().getRegistracija()}"></td>
+                            <td th:text="${rentanje.getVozilo().getTip() == 1} ? 'Avtomobil' : 'Motor'"/>
+                            <td th:text="${rentanje.getVozilo().getBrend()} + ' ' + ${rentanje.getVozilo().getModel()}"></td>
+                            <td th:text="${rentanje.getVozilo().getCena()}"></td>
+                            <td th:text="${rentanje.getKorisnik().getIme()}"></td>
+                            <td th:text="${rentanje.getKorisnik().getPrezime()}"></td>
+                            <td th:text="${rentanje.getOd_koga()}"></td>
+                            <td th:text="${rentanje.getDo_koga()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>

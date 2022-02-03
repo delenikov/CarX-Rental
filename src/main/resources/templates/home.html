@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<th:block>
+<style>
+    .socialNetworkIcons .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+        color: #007bff;
+    }
+
+    .jumbotron {
+        background-color: transparent;
+    }
+</style>
+<br>
+<div class="container" style="background: url(https://i.imgur.com/qv3n4Zm.png); background-position: center;">
+    <section class="jumbotron text-center">
+        <form action="/home" method="post">
+            <div class="form-group" style="display: inline-flex">
+                <select name="location" class="form-control" style="margin-right: 5px">
+                    <option
+                            th:each="loc : ${locations}"
+                            th:value="${loc.getId_lokacija()}"
+                            th:text="${loc.getIme()}">Одберете ја вашата најблиска локација.
+                    </option>
+                </select>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </section>
+</div>
+</th:block>
