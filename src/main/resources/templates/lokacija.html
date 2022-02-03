@@ -10,15 +10,15 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th scope="col">Registracija</th>
-                        <th scope="col">Tip vozilo</th>
-                        <th scope="col">Brend</th>
-                        <th scope="col">Model</th>
-                        <th scope="col">Godina</th>
-                        <th scope="col">Cena</th>
-                        <th scope="col">Boja</th>
-                        <th scope="col">Gorivo</th>
-                        <th scope="col">Lokacija</th>
+                        <th scope="col">Регистрација</th>
+                        <th scope="col">Тип возило</th>
+                        <th scope="col">Бренд</th>
+                        <th scope="col">Модел</th>
+                        <th scope="col">Година</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col">Боја</th>
+                        <th scope="col">Гориво</th>
+                        <th scope="col">Локација</th>
                         <th scope="col">Delete</th>
                         <th scope="col">Edit</th>
                     </tr>
@@ -44,7 +44,7 @@
                             </th:block>
                         <td>
                             <th:block>
-                                <a th:href="@{'/vozila/edit-form/{registracija}' (registracija=${vozilo.getRegistracija()})}"
+                                <a th:href="@{'/vozila/edit-form/{registracija}' (registracija=${vozilo.getRegistracija()})}"></a>
                                 <a class="btn btn-sm btn-info"><i class="fa fa-pen"></i></a>
                             </th:block>
                         </td>
@@ -53,3 +53,4 @@
                 </table>
             </div>
         </div>
+    </div>
